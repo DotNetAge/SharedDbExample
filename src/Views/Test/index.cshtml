@@ -1,0 +1,10 @@
+﻿@{
+    var products = (IEnumerable<SharedContextTest.Product>)ViewBag.Products;
+    }
+
+<ul>
+    @foreach (var p in products)
+    { 
+       <li>@p.Name</li>
+    }
+</ul>
