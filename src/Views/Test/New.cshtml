@@ -1,0 +1,15 @@
+﻿@model SharedContextTest.Product
+
+@{
+    Layout = "~/views/shared/_dashboard.cshtml";
+    ViewBag.Title = "New product";
+    ViewBag.ReturnUrl = Url.SolutionAction("SharedContextTest", "List", "Test", Culture, WebName);
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    Html.RenderPartial("~/Views/Test/_Form.cshtml", Model);
+    <div style="text-align: center;">
+        <button data-default="true" data-inline="false">@Resources.Commons.Save</button>
+    </div>
+}

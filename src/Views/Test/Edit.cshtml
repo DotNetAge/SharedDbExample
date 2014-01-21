@@ -1,0 +1,22 @@
+﻿@model  SharedContextTest.Product
+@{
+    Layout = "~/views/shared/_dashboard.cshtml";
+    ViewBag.Title = "Edit product detail";
+    ViewBag.ReturnUrl = Url.SolutionAction("SharedContextTest", "List", "Test", Culture, WebName);
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    Html.RenderPartial("~/Views/Test/_Form.cshtml");
+    <div style="text-align: center;">
+        <button data-default="true" data-inline="false">@Resources.Commons.Save</button>
+        <a data-ajax="true"
+           data-ajax-confirm="Are you sure delete this product ?"
+           data-ajax-method="post"
+           data-ajax-url="@Url.SolutionAction("SharedContextTest", "Delete", "Test", Culture, WebName, new { id = Model.ID })"
+           data-ajax-begin="$.loading();"
+           data-ajax-success="location='@Url.SolutionAction("SharedContextTest", "List", "Test", Culture, WebName)'"
+           data-ajax-complete="$.loading('hide');"
+           data-role="button" data-inline="false">@Resources.Commons.Delete</a>
+    </div>
+}

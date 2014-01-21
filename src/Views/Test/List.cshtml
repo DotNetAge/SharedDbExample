@@ -1,0 +1,23 @@
+﻿@{
+    var Products = (IEnumerable<SharedContextTest.Product>)ViewBag.Products;
+    }
+
+
+@{
+    Layout = "~/views/shared/_dashboard.cshtml";
+}
+
+@section Navs{
+    <a data-role="button" data-icon-left="d-icon-plus-4" title="New product" href="@Url.SolutionAction("SharedContextTest", "New", "Test", Culture, WebName)"></a>
+}
+<ul data-role="listview" data-display="mobile-list">
+    @foreach (var product in Products)
+    {
+        <li data-counter="@product.Name">
+            <a href="@Url.SolutionAction("SharedContextTest", "Edit", "Test", Culture, WebName, new { id = product.ID })">
+                <h4>@product.Name</h4>
+                </a>
+
+</li>
+    }
+</ul>

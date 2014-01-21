@@ -1,0 +1,15 @@
+﻿@model  SharedContextTest.Product
+@{
+    Layout = "~/views/shared/_dashboard.cshtml";
+    ViewBag.Title = "Product detail";
+}
+@section Navs{
+  <a href="@Url.SolutionAction("SharedContextTest", "Edit", "Test", Culture, AppModel.Get().CurrentWeb.Name, new { id=Model.ID })" title="Edit" data-role="button" data-icon-left="d-icon-edit"></a>  
+    }
+<div class="d-form">
+    <div class="d-field">
+        @Html.LabelFor(m => m.Name)
+        @Html.DisplayTextFor(m => m.Name)
+    </div>
+  
+</div>

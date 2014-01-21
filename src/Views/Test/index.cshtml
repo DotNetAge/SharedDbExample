@@ -1,10 +1,10 @@
 ﻿@{
     var products = (IEnumerable<SharedContextTest.Product>)ViewBag.Products;
-    }
+}
 
 <ul>
     @foreach (var p in products)
     { 
-       <li>@p.Name</li>
+        <li><a href="@Url.SolutionAction("SharedContextTest", "Detail", "Test", Culture, AppModel.Get().CurrentWeb.Name, new { id=p.ID })">@p.Name</a></li>
     }
 </ul>
